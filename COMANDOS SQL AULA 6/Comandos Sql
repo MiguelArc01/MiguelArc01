@@ -1,0 +1,27 @@
+use venda;
+-- Sintaxe DDL - Data Definition Language
+-- CONSTRAINT = RESTRIÇÕES;
+-- EX: CHAVE PRIMÁRIA, CHAVE ESTRANGEIRA, ETC
+-- DEFAULT -> Serve para definir um valor ao criar
+
+drop table Cliente;
+
+create table Cliente(
+cli_cod int,
+cli_nome varchar(30) not null,
+cli_ativo int DEFAULT 1,
+cli_data_nasc date,
+constraint pk_cli_cod primary key(cli_cod)
+);
+describe cliente;
+
+select * from information_schema.table_constraints where constraint_schema = 'Venda';
+
+select * from Cliente;
+
+insert into Cliente (cli_cod, cli_nome, cli_ativo,cli_data_nasc) VALUES (1,'Rafael', 1 ,'2021-12-01');
+
+insert into Cliente (cli_cod, cli_nome,cli_data_nasc) VALUES (2,'Rafaela','2021-11-01');
+
+
+-- 
