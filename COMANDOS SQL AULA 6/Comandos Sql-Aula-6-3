@@ -23,5 +23,41 @@ insert into Cliente (cli_cod, cli_nome, cli_ativo,cli_data_nasc) VALUES (1,'Rafa
 
 insert into Cliente (cli_cod, cli_nome,cli_data_nasc) VALUES (2,'Rafaela','2021-11-01');
 
+ALTER TABLE cliente
+add column cli_cpf varchar(30) unique;
 
+ALTER TABLE cliente
+ADD UNIQUE (cli_data_nasc);
+
+-- TIPOS DE CONSTRAINTS
+-- NOT NULL
+-- UNIQUE. DIFERENÇA PRA PK -  unique key garante a unicidade de informações na sua tabela, 
+-- a primary key também porém esta última pode ser utilizada para relacionamentos de foreign key com outras tabelas.
 -- 
+
+create table pedido(
+ped_id int primary key,
+ped_cod int,
+ped_data date,
+ped_valor int
+);
+
+drop table produto;
+create table produto(
+pro_id int primary key,
+pro_cod varchar(50) not null,
+pro_preco int,
+pro_quant int 
+);
+
+create table itempedido(
+ped_cod int,
+pro_cod int,
+ite_quantidade int,
+ite_valor decimal(7,2),
+foreign key(ped_cod) references pedido(ped_id),
+foreign key(pro_cod) references produto(pro_id),
+primary key(ped_cod,pro_cod)
+);
+
+select * from itempedido;
