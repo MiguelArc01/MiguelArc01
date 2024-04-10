@@ -125,21 +125,27 @@ where p.cli_codigo = c.cli_codigo;
 update produto
 set pro_valor_unidade=105.00 where pro_codigo = 1;
 
-rollback;-- desfaz tudo o que foi feito após o commit
+-- desfaz tudo o que foi feito após o commit
+
+select 	c.cli_nome,
+		v.ven_nome,
+        p.ped_data
+from pedido p inner join cliente c
+	on p.cli_codigo = c.cli_codigo
+    inner join vendedor v 
+    on p.ven_codigo = v.ven_codigo;
+    
+select c.cli_nome, v.ven_nome, p.ped_data 
+					from cliente c inner join vendedor v 
+					on c.cli_codigo = v.ven_codigo
+                    inner join pedido p
+                    on p.ven_codigo = v.ven_codigo and p.ven_codigo = c.cli_codigo;
 
 
+select c.cli_nome,c.cli_codigo,v.ven_codigo, v.ven_nome from cliente c inner join vendedor v on c.cli_codigo = v.ven_codigo;
+    
+select v.ven_nome,v.ven_salario_fixo from vendedor v where v.ven_salario_fixo > 1500;
+select c.cli_codigo, c.cli_nome, c.cli_cidade from cliente c where c.cli_estado = 'SP';
+select c.cli_nome, c.cli_codigo ,v.ven_codigo,v.ven_nome from cliente c, vendedor v where c.cli_codigo = v.ven_codigo;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from cliente;
