@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Realizar Carga</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet" />
+
+    </head>
+    <body>
+        <div id="text">
+            aaaaaaa
+            <p><u>Lore de algo</u> </p>
+        </div>
+        <p>Lorem ipsum</p>
+    <script>
+        var a = window.document.getElementsByTagName('p')[0]
+        document.write('<br> Mudei isso aqui, modo básico: ' + a.innerText);
+        document.write('<br> Mudei isso aqui, modo com formatação: ' + a.innerHTML);
+        var aa = document.getElementById("text");
+        document.write(aa.innerText);
+        aa.innerText = 'AAAAAAAAAA'
+    </script>
+    </body>
+</html>
