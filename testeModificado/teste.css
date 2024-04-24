@@ -1,0 +1,66 @@
+
+.centralizado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width:480px; /* Definindo uma largura máxima para garantir uma boa experiência em telas maiores */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+.p-left{
+    text-align: left;
+}
+a{
+    font-size: 20px;
+}
+.p-left {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.centralizado input,
+.centralizado select,
+.centralizado textarea {
+    width: calc(80% - 20px); /* Garantindo que os elementos ocupem 100% da largura da div, descontando o padding */
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Mantém a largura dos elementos consistente */
+}
+.centralizado button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.centralizado button:hover {
+    background-color: #0056b3;
+}
+.checkbox-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-options p,
+.checkbox-options .checkbox-container {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.checkbox-container input[type="radio"] {
+    margin-right: 5px;
+}
+
+.checkbox-container label {
+    font-size: 15px;
+}
