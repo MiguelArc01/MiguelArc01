@@ -5,7 +5,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width:480px; /* Definindo uma largura máxima para garantir uma boa experiência em telas maiores */
+    max-width:430px; /* Definindo uma largura máxima para garantir uma boa experiência em telas maiores */
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-align: center;
@@ -18,9 +18,9 @@
 a{
     font-size: 20px;
 }
-.p-left {
+.delimiter-label {
     text-align: left;
-    margin-top: 15px;
+    display: block;
     margin-bottom: 5px;
 }
 .centralizado input,

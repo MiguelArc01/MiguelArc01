@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testando</title>
+    <script src="teste.js" defer></script>
     <link rel="stylesheet" href="teste.css">
 </head>
+  
 <body>
-    
-    <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Div Centralizada</title>
-</head>
-<body>
+    <form id="csvForm">
+        <label for="delimiter">Digite o delimitador (, ; |):</label>
+        <input type="text" id="delimiter" name="delimiter" required>
+        <br><br>
+        <label for="csvFile">Escolha um arquivo CSV:</label>
+        <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+        <br><br>
+        <button type="submit">Processar</button>
+    </form>
     <div class="centralizado">
         <label for="">
-            Tipo de Arquivo:
-            <select id="file-type" style="width: 80px;">
+            
+            <a class="delimiter-label" required>Tipo de Arquivo: <select id="file-type" style="width: 60px;">
                 <option value="csv">CSV</option>
                 <option value="pdf">PDF</option>
                 <option value="xml">XML</option>
                 <option value="json">JSON</option>
-            </select>
+            </select></a>
         </label>
         <br>
-        <a class="p-left" >Delimitador:</a>
-        <input type="text" id="delimiter" style="width: 80px;">
+        <a class="delimiter-label" >Delimitador: 
+            <input type="text" id="delimiter" style="width: 60px;text-align: left;">
+        </a>
         
         <div class="checkbox-options">
             <a class="p-left">Possui Header?</a>
@@ -44,18 +47,42 @@
         
 
         <br>
-        <label for="file-input" class="file-label" >
-            <span>Selecionar arquivo
-            <input type="file" id="file-input" style="width: 130px;">
+        <a class="delimiter-label">Selecionar arquivo <label for="file-input" class="file-label" >
+            <span>
+            <input type="file" id="file-input" style="width: 270px;">
             </span>
-        </label>
+        </label></a>
         <br>
-        <a style="font-size: 25px;">Descrição:</a>
-        <textarea id="description" rows="4" placeholder="Digite sua descrição aqui"></textarea>
+        <a style="font-size: 25px;">Descrição</a>
+        <br>
+        <textarea id="description" rows="4" placeholder="Descrição do arquivo: "></textarea>
         <br><button id="send-btn" style="align-self: center;">Enviar</button>
     </div>
+
 </body>
 </html>
+<!-- 
+
+
+
+<h2>Processar Arquivo CSV</h2>
+<form id="csvForm">
+    <label for="delimiter">Digite o delimitador (, ; |):</label>
+    <input type="text" id="delimiter" name="delimiter" required>
+    <br><br>
+    <label for="csvFile">Escolha um arquivo CSV:</label>
+    <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+    <br><br>
+    <button type="submit">Processar</button>
+</form>
+
+<div id="output"></div>
+
+
+
+
+-->
+
 
 
 </body>
