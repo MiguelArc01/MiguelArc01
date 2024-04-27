@@ -1,0 +1,107 @@
+drop database bdpratica01;
+create database bdpratica01;
+use bdpratica01;
+
+create table funcionario(
+cod_func int(4) primary key,
+nome varchar(100) not null,
+cpf varchar(15) unique,
+salario decimal(6,2),
+endereco varchar(252),
+sexo CHAR(1) NOT NULL,
+CHECK (SEXO = 'M' OR SEXO = 'F'),
+constraint salario_reajuste check (salario >= 1000)
+);
+
+
+create table dependente (
+SEQ int(4),
+nome varchar(100) not null,
+parentesco varchar(30) not null CHECK (parentesco IN ('PAI', 'MÃE', 'IRMAOS', 'FILHO')),
+data_nasc date,
+cod_func int(4),
+
+foreign key (cod_func) references funcionario(cod_func),
+
+primary key (SEQ, cod_func)
+);
+
+create table projeto (
+cod_proj int(4) primary key,
+titulo int(4) not null,
+descricao varchar(252),
+DATA_CAD TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+create table departamento (
+cod_departamento int(4) primary key,
+nome varchar(30),
+data_inicial date
+);
+CREATE TABLE participa (
+    cod_func int(4),
+    cod_proj int(4),
+    horas varchar(50),
+    foreign key (cod_func) references funcionario(cod_func),
+    foreign key (cod_proj) references projeto(cod_proj),
+	primary key (cod_func, cod_proj)
+);
+
+
+alter table funcionario
+add column cod_super int(4),
+add constraint fk_cod_super_func
+foreign key (cod_super) references funcionario(cod_func);
+
+alter table funcionario
+add column cod_departamento int(4),
+add constraint fk_cod_departamento_func
+foreign key (cod_departamento) references departamento(cod_departamento);
+
+
+create table localizacao(
+local_loca varchar(252),
+cod_departamento int(4),
+
+foreign key (cod_departamento) references departamento(cod_departamento),
+
+primary key (local_loca, cod_departamento)
+);
+
+alter table projeto
+add column cod_departamento int(4),
+add constraint fk_cod_departamento_projeto
+foreign key (cod_departamento) references departamento(cod_departamento);
+
+-- EXERCÍCIO 01 RESOLVIDO
+alter table projeto
+add column status_proj int not null,
+modify titulo varchar(155),
+rename column DATA_CAD to DATA_CADASTRO,
+add constraint value_check Check(status_proj In (0, 1));
+
+-- EXERCÍCIO 02 RESOLVIDO 
+alter table funcionario
+drop column endereco;
+
+create table endereco(
+endereco_nome varchar(252) primary key,
+cod_func int(4),
+foreign key (cod_func) references funcionario(cod_func)
+);
+
+alter table funcionario
+add column endereco_nome varchar(252),
+add constraint fk_endereco_func
+foreign key (endereco_nome) references endereco(endereco_nome),
+drop constraint salario_reajuste
+;
+
+-- Exercício 03 resolvido ----------------
+
+
+
+
+
+

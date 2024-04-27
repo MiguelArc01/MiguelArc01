@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.Arrays;
+
+public class chamada {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Insira o número de RAS: ");
+        int qtd_ra = Integer.parseInt(String.valueOf(bf.read()));
+        System.out.println("Insira o número de RAS faltantes: ");
+        int qtd_ra_pre = Integer.parseInt(String.valueOf(bf.read()));
+        System.out.println("Insira os RAS totais: ");
+        String ras_lista = "10 20 30";
+        System.out.println("Insira os RAS presentes: ");
+        String ras_lista_pre = bf.readLine();
+
+
+            String[] ra_lista = ras_lista.split(" ");
+
+            int[] ras_int = new int[ra_lista.length];
+
+        for (int i = 0; i < ra_lista.length; i++) {
+            ras_int[i] = Integer.parseInt(ra_lista[i]);
+        }
+
+        System.out.println(Arrays.toString(ras_int));
+
+    }
+}

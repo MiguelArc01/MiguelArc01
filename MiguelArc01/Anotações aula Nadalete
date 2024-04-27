@@ -1,0 +1,6 @@
+- métodos de interface por padrão são públicos.
+- Repository no Spring é uma interface.
+@Annotations = metadados e comportamentos específicos ao código Java sem escrever muito código.Ex: @Getter e @Setter do Lombok.
+Spring Core = coração do Spring, componente central do sistema operativo
+D.I = Injection Dependency -> Essas injeções de dependência são destinadas a 
+Spring Data -> Mapeia as entidades do BD, separando certinho, entidade, coluna, atributos, etc...

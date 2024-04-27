@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop-up com Formulário Adaptado</title>
+<style>
+    /* Estilo para o pop-up */
+    .popup-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Sombra escura */
+        z-index: 1000;
+    }
+
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .fechar-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!-- Botão para abrir o pop-up -->
+<button onclick="abrirPopup()">Abrir Pop-up</button>
+
+<!-- Estrutura do pop-up -->
+<div class="popup-container" id="popupContainer">
+    <div class="popup">
+        <span class="fechar-btn" onclick="fecharPopup()">&#10006;</span>
+        <h2>Formulário Adaptado</h2>
+        <div class="centralizado">
+            <label for="file-type">
+                Tipo de Arquivo: 
+                <select id="file-type" style="width: 60px;">
+                    <option value="csv">CSV</option>
+                    <option value="pdf">PDF</option>
+                    <option value="xml">XML</option>
+                    <option value="json">JSON</option>
+                </select>
+            </label>
+            <br>
+            Delimitador: 
+            <input type="text" id="delimiter" style="width: 60px;text-align: left;">
+            <br>
+            Possui Header?
+            <div class="checkbox-container">
+                <input type="radio" id="header-yes" name="header-option" value="yes">
+                <label for="header-yes">Sim</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="radio" id="header-no" name="header-option" value="no">
+                <label for="header-no">Não</label>
+            </div>
+            <br>
+            Selecionar arquivo 
+            <label for="file-input" class="file-label">
+                <input type="file" id="file-input" style="width: 270px;">
+            </label>
+            <br>
+            <span style="font-size: 25px;">Descrição</span>
+            <br>
+            <textarea id="description" rows="4" placeholder="Descrição do arquivo: "></textarea>
+            <br>
+            <button id="send-btn" onclick="enviarFormulario()" style="align-self: center;">Enviar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Função para abrir o pop-up
+    function abrirPopup() {
+        document.getElementById('popupContainer').style.display = 'block';
+    }
+
+    // Função para fechar o pop-up
+    function fecharPopup() {
+        document.getElementById('popupContainer').style.display = 'none';
+    }
+
+    // Função para enviar o formulário (exemplo)
+    function enviarFormulario() {
+        alert('Formulário enviado com sucesso!');
+        fecharPopup(); // Fechar o pop-up após o envio
+    }
+</script>
+
+</body>
+</html>
